@@ -1,5 +1,8 @@
 ## 规则文件地址及使用方式
-
+直连域名列表 direct，代理域名列表 proxy ，广告域名列表 reject，私有网络专用域名列表 private
+Apple 在中国大陆可直连的域名列表 apple，iCloud 域名列表 icloud，[慎用]Google 在中国大陆可直连的域名列表 google
+GFWList 域名列表 gfw，非中国大陆使用的顶级域名列表 tld-not-cn，Telegram 使用的 IP 地址列表 telegramcidr
+局域网 IP 及保留 IP 地址列表 lancidr，中国大陆 IP 地址列表 cncidr，需要直连的常见软件列表 applications
 ### 使用方式
 
 要想使用本项目的规则集，只需要在 Clash 配置文件中添加如下 `rule-providers` 和 `rules`。
