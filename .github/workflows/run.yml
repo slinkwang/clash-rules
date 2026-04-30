@@ -31,6 +31,7 @@ jobs:
           echo "telegram_cidr=https://raw.githubusercontent.com/Loyalsoldier/geoip/release/text/telegram.txt" >> $GITHUB_ENV
           echo "fakeip_filter=https://raw.githubusercontent.com/slinkwang/host/main/fakeip-filter.list" >> $GITHUB_ENV
           echo "ByteDance=https://raw.githubusercontent.com/slinkwang/host/main/ByteDance.list" >> $GITHUB_ENV
+          echo "ByteDance=https://raw.githubusercontent.com/slinkwang/host/main/douyin_feishu.list" >> $GITHUB_ENV
         shell: bash
 
       - name: Checkout the "hidden" branch
@@ -152,7 +153,12 @@ jobs:
       - name: Generate ByteDance.list file
         run: |
           curl -sSL "${ByteDance}" >> ByteDance.list
-          ./mihomo convert-ruleset domain text ByteDance.list ByteDance.mrs          
+          ./mihomo convert-ruleset domain text ByteDance.list ByteDance.mrs
+
+      - name: Generate douyin_feishu.list file
+        run: |
+          curl -sSL "${ByteDance}" >> douyin_feishu.list
+          ./mihomo convert-ruleset domain text douyin_feishu.list douyin_feishu.mrs   
 
       - name: Move files to publish directory
         run: |
